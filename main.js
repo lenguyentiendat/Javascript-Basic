@@ -522,19 +522,19 @@ var courses = [
     }
 ]
 //** forEach(): Duyet tung phan tu trong mang array
-courses.forEach(function(course, index) {
-    console.log(index, course)
-});
-// 
-courses.forEach(function(course, index) {
-    console.log(index, course)
-});
+// courses.forEach(function(course, index) {
+//     console.log(index, course)
+// });
+// // 
+// courses.forEach(function(course, index) {
+//     console.log(index, course)
+// });
 
-const numbers = [21, 38, 55, 9]
-numbers.forEach(function(number, index, arr){
-    arr[index] = number * 10
-    console.log(arr[index])
-})
+// const numbers = [21, 38, 55, 9]
+// numbers.forEach(function(number, index, arr){
+//     arr[index] = number * 10
+//     console.log(arr[index])
+// })
 
 //** every() : Tra ve kieu boolean kiem tra xem tat ca phan tu co thoa dieu kien ko
 // var isFree = courses.every(function(course, index){
@@ -560,9 +560,77 @@ numbers.forEach(function(number, index, arr){
 // console.log(course)
 
 //** filter(): tra ve 1 danh sach phan tu thoa dieu kien nao do
-var listCourse = courses.filter(function(course, index){
-    return course.name === 'Ruby'
-})
+// var listCourse = courses.filter(function(course, index){
+//     return course.name === 'Ruby'
+// })
 
-console.log(course)
+// console.log(course)
+
+var courses = [
+    {
+        id: 1,
+        name: 'Javascript',
+        coin: 200
+    },
+    {
+        id: 2,
+        name: 'ReactJS',
+        coin: 0
+    },
+    {
+        id: 3,
+        name: 'HTML, CSS',
+        coin: 200
+    },
+    {
+        id: 4,
+        name: 'PHP',
+        coin: 400
+    },
+    {
+        id: 5,
+        name: 'Ruby',
+        coin: 500
+    },
+    {
+        id: 6,
+        name: 'Ruby',
+        coin: 500
+    }
+]
+function courseHandler(course, index) {
+    return {
+        id: course.id,
+        name: `Khoa hoc: ${course.name}`,
+        coin: course.coin,
+        coinText: `Gia: ${course.coin}`,
+        index: index,
+        originArray: courses
+    }
+}
+function courseHandler2(course, index) {
+    return `<h2>${course.name}</h2>`    
+}
+//map(): Lặp lại qua từng phần tử và thay đôi giá trị của phần tử đó
+var newCourses = courses.map(courseHandler2);
+console.log(newCourses.toString())
+
+
+
+//** reduce(): Tính toán qua từng phần tử của mảng và trả về kết quả cuối cùng
+// Biến lưu trữ
+// Thực hiện việc lưu trữ
+
+// function coinHandler(accumulator, currentValue)    {
+//     return accumulator + currentValue.coin
+// }
+var totalCoin = courses.reduce(function (accumulator, currentValue){
+    return accumulator + currentValue.coin
+}, 0)
+console.log(totalCoin)
+
+
+
+
+
 
